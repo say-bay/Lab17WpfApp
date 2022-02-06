@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Lab17WpfApp.ColorMixer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Lab17WpfApp"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Slider x:Name="sliderRed" Minimum="0" Maximum="255" Width="350"
+                Value="{Binding ElementName=colorMixer, Path=Red}"/>
+        <Slider x:Name="sliderGreen" Minimum="0" Maximum="255" Grid.Row="1"
+                Value="{Binding ElementName=colorMixer, Path=Green}"/>
+        <Slider x:Name="sliderBlue" Minimum="0" Maximum="255" Grid.Row="2"
+                Value="{Binding ElementName=colorMixer, Path=Blue}"/>
+        <Rectangle Grid.Column="1" Grid.RowSpan="3" Width="50" Stroke="Black"
+                   StrokeThickness="1" StrokeDashArray="2 1">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding ElementName=colorMixer, Path=Color}"/>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>
